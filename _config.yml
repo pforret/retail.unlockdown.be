@@ -6,19 +6,19 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: Unlockdown Horeca
-subtitle: Steun uw lokale restaurants!
+title: Unlockdown Retail
+subtitle: Steun uw lokale winkeliers!
 email: peter@forret.com
 description: > # this means to ignore newlines until "baseurl:"
-    Steun uw lokale ondernemers, bestel je gifts bij je lokale shops!
+    Steun uw lokale ondernemers, bestel je gifts bij je lokale winkeliers!
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://retail.unlockdown.be" # the base hostname & protocol for your site
-twitter_username: 
-github_username: 
+twitter_username:
+github_username:
 
 # Build settings
 markdown: kramdown
 
 collections:
-  resto:
+  shop:
     output: true
