@@ -1,0 +1,38 @@
+---
+layout: default
+---
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item" aria-current="page"><a href="/"><i class="fas fa-home"></i> Home</a></li>
+        <li class="breadcrumb-item" aria-current="page"><a href="./"><i class="fas fa-map-marker"></i> {{page.city}}</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{{page.title}}</li>
+    </ol>
+</nav>
+
+<article class="post">
+    {% if page.logo %}<img style="float: right; max-width: 150px; max-height: 150px" src="{{page.logo}}">{% endif %}
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title }}</h1>
+  </header>
+
+  <div class="post-content">
+  	<div><i class="fas fa-map-marker-alt"></i> Adres: <a href="https://www.google.com/maps/place/{{ page.address }}">{{ page.address }}</a></div>
+  	{% if page.website %}<div><i class="fas fa-link"></i> Website: <a href="{{ page.website }}">{{ page.website | replace:'https://','' }}</a></div>{% endif %}
+      {% if page.facebook %}<div><i class="fab fa-facebook-square"></i> Facebook: <a href="{{ page.facebook }}">{{ page.facebook | replace:'https://',''  | replace:'www.',''  }}</a></div>{% endif %}
+      {% if page.takeaway %}<div><img height=16 src="https://www.takeaway.com/favicon.ico"> Takeaway: <a href="{{ page.takeaway }}">{{ page.takeaway | replace:'https://',''  | replace:'www.',''  }}</a></div>{% endif %}
+  	<hr/>
+    {{ content }}
+  </div>
+  	{% if page.announcement %}<div class="text-secondary" ><i class="fas fa-bullhorn"></i> Lockdown 2 aankondiging: <a href="{{ page.announcement }}">{{ page.announcement | replace:'https://','' | truncate: 30 }}</a></div>{% endif %}
+<br />
+{% for tag in page.categories %}
+    {% if tag=="delivery" %}
+    <span><i title="{{ tag }}" class="fas fa-car"></i> <a href="/categories#{{tag}}">{{ tag }}</a></span>
+    {% else %}
+    <span><i title="{{ tag }}" class="fas fa-people-carry"></i> <a href="/categories#{{tag}}">{{ tag }}</a></span>
+    {% endif %}
+    {% endfor %}
+{% for tag in page.tags %}
+  <span><i class="fas fa-tag"></i> <a href="/tags#{{tag}}">{{ tag }}</a></span>
+{% endfor %}
+</article>
